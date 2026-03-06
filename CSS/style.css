@@ -1,0 +1,67 @@
+body {
+  text-align: center;
+  font-family: Arial;
+  background: linear-gradient(to left, #ff7e5f, #feb47b);
+}
+
+table {
+  margin: auto;
+}
+
+.tambah {
+  border-radius: 10px;
+    padding: 15px;
+    color: black;
+    margin-top: 5px;
+    width: fit-content; 
+    outline: 2px solid #ccc;
+}
+
+#hasil {
+  width: 300px;
+  margin: auto;
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+label {
+  text-align: left;
+}
+
+input {
+  border-radius: 10px;
+    padding: 15px 70px;
+    color: black;
+    margin-top: 5px;
+    width: fit-content; 
+    outline: 2px solid #ccc;
+}
+
+.delete{
+  border-radius: 10px;
+    padding: 7px 15px;
+    color: black;
+    margin-top: 5px;
+    width: fit-content; 
+    outline: 2px solid #ccc;
+    background-color:crimson;
+}
+
+.edit{
+  border-radius: 10px;
+    padding: 7px 15px;
+    color: black;
+    margin-top: 5px;
+    width: fit-content; 
+    outline: 2px solid #cccccc;
+    background-color: forestgreen;
+}
+
+.reset{
+   border-radius: 10px;
+    padding: 15px 25px;
+    color: black;
+    margin-top: 5px;
+    width: fit-content; 
+    outline: 2px solid #cccccc;
+}

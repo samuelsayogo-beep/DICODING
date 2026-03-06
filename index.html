@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <h2>Input Data Siswa</h2>
+    <hr />
+    <table>
+      <tr>
+        <td>
+          <input
+            placeholder="Nama"
+            type="text"
+            id="nama"
+            type="text"
+            id="nama"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            placeholder="Rombel"
+            type="text"
+            id="kelas"
+            type="text"
+            id="nama"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <input
+            placeholder="Nilai"
+            type="text"
+            id="nilai"
+            type="text"
+            id="nama"
+          />
+        </td>
+      </tr>
+    </table>
+
+    <button onclick="nilai()" class="tambah">Tambah</button>
+
+    <button onclick="reseteData()" class="reset">reset</button>
+
+    <h2 id="data">Data Siswa</h2>
+    <div id="hasil"></div>
+
+    <script>
+      let data = [];
+
+      function nilai() {
+        let nama = document.getElementById("nama").value;
+        let kelas = document.getElementById("kelas").value;
+        let nilai = document.getElementById("nilai").value;
+        let grade;
+        let status;
+
+        if (nilai >= 90) {
+          grade = "A";
+        } else if (nilai >= 80) {
+          grade = "B";
+        } else if (nilai >= 75) {
+          grade = "C";
+        } else if (nilai >= 50) {
+          grade = "D";
+        } else {
+          grade = "E";
+        }
+
+        if (nilai > 75) {
+          status = "Lulus";
+        } else {
+          status = "Tidak Lulus";
+        }
+
+        data.push({
+          nama: nama,
+          kelas: kelas,
+          nilai: nilai,
+          grade: grade,
+          status: status,
+        });
+
+        document.getElementById("nama").value = "";
+        document.getElementById("kelas").value = "";
+        document.getElementById("nilai").value = "";
+
+        displayList();
+      }
+
+      function displayList() {
+        let list = document.getElementById("hasil");
+        list.innerHTML = "";
+        data.forEach((item, index) => {
+          list.innerHTML +=
+            "<b>Siswa ke-" +
+            (index + 1) +
+            "</b><br>" +
+            "Nama:" +
+            item.nama +
+            "<br>" +
+            "Rombel: " +
+            item.kelas +
+            "<br>" +
+            "Nilai: " +
+            item.nilai +
+            "<br>" +
+            "Grade: " +
+            item.grade +
+            "<br>" +
+            "Status: " +
+            item.status +
+            "<br>" +
+            "<button class='edit' onclick='editData(" +
+            index +
+            ")'>Edit</button> " +
+            "<button class='delete' onclick='deleteData(" +
+            index +
+            ")'>Delete</button><br><br>";
+        });
+      }
+
+      function deleteData(index) {
+        data.splice(index, 1);
+        displayList();
+      }
+
+      function editData(index) {
+        var item = data[index];
+        document.getElementById("nama").value = item.nama;
+        document.getElementById("kelas").value = item.kelas;
+        document.getElementById("nilai").value = item.nilai;
+        deleteData(index);
+      }
+
+      function reseteData(index) {
+        data.splice(index);
+        displayList();
+      }
+    </script>
+  </body>
+</html>
